@@ -1,47 +1,83 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Customer</title>
+	<style>
+		body{
 
-name: Symfony
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
-permissions:
-  contents: read
+		   background-image: url(22.png);
+	       background-size: cover;
+	       background-position:  center;
+	       position: relative;
+	       z-index: 1; 
+		}
+	  h1{
+            text-align: center;
+        }
+		form {
+			
+			margin: 30px auto;
+			width: 350px;
+			padding: 30px;
+			border: 1px solid #ccc;
+			border-radius: 20px;
+background-color: #f5f5dd;
+		}
+		input[type="text"], input[type="tel"], input[type="email"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			box-sizing: border-box;
+		}
+		input[type="submit"] {
+			background-color: yellowgreen;
+			color: white;
+			padding: 10px 110px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			border: 1px solid #ccc;}
+			.container {
+				
+               display: flex;
+               justify-content: center;
+			   
+}        
+             img{
 
-jobs:
-  symfony-tests:
-    runs-on: ubuntu-latest
-    steps:
-    #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
-    # change this to (see https://github.com/shivammathur/setup-php#bookmark-versioning):
-    # uses: shivammathur/setup-php@v2
-    - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
-      with:
-        php-version: '8.0'
-    - uses: actions/checkout@v3
-    - name: Copy .env.test.local
-      run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-    - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Create Database
-      run: |
-        mkdir -p data
-        touch data/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
-      run: vendor/bin/phpunit
+                width: 100px;
+				padding: 2px;
+
+}
+			
+	</style>
+</head>
+<body>
+	<form method="POST" action="add_customer.php">
+	<div class="container">
+	<img src="patient.png" alt="">
+</div>
+
+		<h1> Sign In</h1> 
+		<label for="name">Name:</label>
+		<input type="text" name="name" id="name" required>
+		<label for="address">Address:</label>
+		<input type="text" name="address" id="address" required>
+		<label for="phone">Phone:</label>
+		<input type="tel" name="phone" id="phone" pattern="[0-9]{10}" required>
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email" required>
+		<input type="submit" value="Log in to the site">
+        <script>
+	document.getElementById("Log in to the site").addEventListener("click", function() {
+		window.location.href = "shoeab.html";
+		
+	});
+    </script>
+	</form>
+</body>
+</html>
